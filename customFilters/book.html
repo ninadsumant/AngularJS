@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js">
+    </script>
+    <script type="text/javascript" src="book.js"></script>
+</head>
+<body>
+        <div ng-app="mainApp" ng-controller="bookController">
+                <table border="1">
+                    <tr>
+                        <th>book Name</th>
+                        <th>book price</th>
+                        <th>no</th>
+                        
+                    </tr>
+                    <tr ng-repeat="book in book | custom:300">
+                        <td>{{book.bname}}</td>
+                        <td>{{book.price}}</td>
+                        <td>{{book.no}}</td>
+                        
+                    </tr>
+                </table>
+            </div>
+</body>
+</html>
