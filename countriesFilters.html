@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.3.14/angular.min.js"></script>
+</head>
+
+    <script>
+        var app=angular.module('myapp',[]);
+        app.controller('myctrl',function($scope,$filter){
+            $scope.countries=[{cname:$filter('lowercase')('India'),population:100000,capital:'Delhi',currency:'Rupees'},{cname:'America',population:50000,capital:'Washington',currency:'Dollar'}];
+
+        });
+
+        app.directive("name",function(){
+            return{
+                template:"<h1>Country Details</h1>"
+            };
+        });
+    </script>
+<body ng-app="myapp" ng-controller="myctrl">
+
+    <name></name>
+
+
+    <input type="text" name="search" ng-model="search"><br><br>
+    <table border="1">
+
+    <tr>
+        <th>Cname</th>
+        <th>Population</th>
+        <th>Capital</th>
+        <th>Currency</th>
+    </tr>
+    <tr ng-repeat="country in countries | filter:search | orderBy:'cname'">
+        <td>{{country.cname}}</td>
+        <td>{{country.population}}</td>
+        <td>{{country.capital | lowercase}}</td>
+        <td>{{country.currency}}</td>
+    </tr>
+    </table>
+    
+</body>
+</html>
