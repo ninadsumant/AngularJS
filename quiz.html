@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <fieldset id="question1">
+        <legend>Which are fruit?</legend>
+        <label ><input type="checkbox" name="input" value="wrong">tomatoes</label>
+        <label ><input type="checkbox" name="input" value="right">mangoess</label>
+        <label ><input type="checkbox" name="input" value="wrong">guava</label>
+        <label ><input type="checkbox" name="input" value="wrong">carrot</label>
+    </fieldset>
+    <input type="button" value="submit" id="answer">
+    <script>
+        document.getElementById("answer").onclick=validate;
+        function validate(){
+            var checkboxes = document.getElementById("input");
+            var checkboxChecked = [];
+
+            for (let i = 0; i < checkboxes.length; i++) {
+                if(checkboxes[i].checked && (checkboxes[i].value == "right")){
+                    checkboxChecked.push(checkboxes[i]);
+                }
+                
+            }
+            if(checkboxChecked.length == 1){
+                alert("wrong");
+            }
+            else{
+                alert("correct");
+            }
+        }        
+    </script>
+
+
+</body>
+</html>

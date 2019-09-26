@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+	<head>
+		<title>Armstrong Number</title>
+		<script>
+			function on_btn_gen_click() {
+				count = parseInt(document.getElementById("inCount").value);
+
+				for (let index = 1; index < count; index++) {
+                    var e, x, d = 0;
+                    var b = index;
+                    x=b;
+
+                    while (x > 0) {
+                    e = x % 10;
+                    x = parseInt(x/10);
+                    d = d + (e*e*e);
+                    }
+
+                if (b==d)
+                document.writeln(b);
+                }
+			}
+		</script>
+	</head>
+	<body>
+		<h1>Armstrong Numbers</h1>
+		Enter the range: <input id="inCount" />
+		<button id="btnGen" onclick="on_btn_gen_click()">Generate</button>
+		<p id="pSeries" />
+	</body>
+</html>

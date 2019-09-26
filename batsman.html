@@ -1,0 +1,62 @@
+<html>
+<body>
+	
+	<h1 >Batsman </h1>
+	Batsman Code : <h3 id='bcd'></h3>
+	
+	Batsman Name : <h3 id='bname'></h3>
+	
+	Innings : <h3 id='inn'></h3>
+	
+	Not Outs : <h3 id='no'></h3>
+	
+	Runs : <h3 id='run'></h3>
+	
+	Average : <h3 id='avg'></h3>
+
+	
+
+	<script>
+	
+	
+		
+		function batsman(bcode,bname,inn,no,run)
+		{
+			this.bcode=bcode;
+			this.bname=bname;
+			this.inn=inn;
+			this.no=no;
+			this.run=run;
+			this.avg = function() {
+				return this.run / (this.inn-this.no);
+			};
+			this.update=function(inn,nout,trun) {
+				this.inn=inn;
+				this.no=nout;
+				this.run=trun;
+			}
+			this.dispInfo=function()
+			{
+				document.getElementById("bcd").innerHTML=this.bcode;
+				document.getElementById("bname").innerHTML=this.bname;
+				document.getElementById("inn").innerHTML=this.inn;
+				document.getElementById("no").innerHTML=this.no;
+				document.getElementById("run").innerHTML=this.run;
+				document.getElementById("avg").innerHTML=this.avg();
+				return "";
+			}
+		}
+		
+		var bt=new batsman(1,"Abcd",12,4,524);
+		//bt.dispInfo()
+		bt.update(25,12,1200);
+		bt.dispInfo()
+		
+
+		
+
+	</script>
+	
+
+</body>
+</html>

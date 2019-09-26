@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+    <script>
+function WordCount(str) { 
+var phrase = document.getElementById('txtbox').value;
+var nwords=  phrase.split(" ").length;
+document.write(nwords); 
+}
+
+    </script>
+</head>
+<body>
+    <input type="text" id="txtbox" placeholder="Enter String" />
+    <input type="button" onclick="WordCount()" value="count words" />
+</body>
+</html>
