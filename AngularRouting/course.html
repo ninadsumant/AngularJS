@@ -1,0 +1,14 @@
+<div ng-app="mainApp">
+    <table border="1">
+        <tr>
+            <th>Course Name</th>
+            <th>Course Code</th>
+            <th>Credits</th>
+        </tr>
+        <tr ng-repeat="course in courses">
+            <td>{{course.cname}}</td>
+            <td>{{course.code}}</td>
+            <td>{{course.credits}}</td>
+        </tr>
+    </table>
+</div>
