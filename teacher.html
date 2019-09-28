@@ -1,0 +1,61 @@
+
+<html>
+<body  >
+<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+
+
+<form ng-app="myApp" ng-controller="myCtrl">
+		<br><br><hr>
+	Teacher No : <input type="text" ng-model="tno">
+	<br>
+	Teacher Name : <input type="text" ng-model="tname">
+	<br>
+	Experience : <input type="number" ng-model="exp">
+	<br>
+	Join Date : <input type="date" ng-model="jdate">
+	<br>
+	Qualification : <input type="text" ng-model="qual">
+	<br>
+	Salary : <input type="number" ng-model="sal">
+	<br>
+	Address : <input type="text" ng-model="add">
+	<br>
+	<br>
+	<button ng-click=dispInfo()> Display Info </button>
+	<button ng-click=dispExp()>  Display Experience </button>
+	<br><br>
+	New Salary :<input type="number" ng-model="usal"><br>
+	<button ng-click=updateSal()> Update Salary </button>
+	<br><br>
+	New Qualification : <input type="text" ng-model="uqual"><br>
+    <button ng-click=updateQual()> Update Qualification</button>
+    
+
+
+	 <h3>{{data}} </h3>
+	 <h3>{{y}} </h3>
+</form>
+<script>
+    var app = angular.module('myApp', []);
+    app.controller('myCtrl', function($scope) {
+        $scope.dispInfo=function(){
+            $scope.data="Teacher No : "+$scope.tno+" ,Teacher Name : "+$scope.tname+", Experience : "+$scope.exp+" ,Join date : "+$scope.jdate+" ,Qualification : "+$scope.qual+" ,Salary : "+$scope.sal+" ,Address : "+$scope.add;
+         }
+         $scope.updateSal=function(){
+            $scope.sal=$scope.usal;
+            $scope.dispInfo();
+         }
+         $scope.updateQual=function(){
+            $scope.qual=$scope.uqual;
+            $scope.dispInfo();
+         }
+          $scope.dispExp=function(){
+            var dt=new Date();
+            $scope.y="Total Experience : "+($scope.exp+dt.getFullYear()-$scope.jdate.getFullYear())+ " Years" ;
+         }
+    });
+</script>
+
+
+</body>
+<html>
